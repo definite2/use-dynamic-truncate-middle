@@ -1,0 +1,70 @@
+{
+  "name": "@definite2/use-truncate-middle",
+  "version": "1.0.0",
+  "description": "React hook which dynamically calculates the maximum number of characters that fit into an HTML element",
+  "author": "Defne E. <edefne878@gmail.com> (https://github.com/definite2)",
+  "license": "MIT",
+  "repository": "definite2/use-fit-character-number",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ]
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^8.0.0",
+    "@types/jest": "^27.4.1",
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "jest": "^27.5.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-test-renderer": "^18.0.0",
+    "rollup": "^2.70.2",
+    "rollup-plugin-sass": "^1.2.12",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "rollup-plugin-uglify": "^6.0.4",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.6.3"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "react-hook",
+    "resize-observer",
+    "truncate-middle",
+    "dynamic-truncate",
+    "fit-character-number",
+    "dynamic-character-number"
+  ],
+  "dependencies": {
+    "prop-types": "^15.8.1"
+  }
+}
