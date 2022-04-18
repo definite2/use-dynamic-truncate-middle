@@ -1,5 +1,5 @@
 {
-  "name": "@definite2/use-truncate-from-middle",
+  "name": "use-truncate-from-middle",
   "version": "1.0.0",
   "description": "React hook which dynamically calculates the maximum number of characters that fit into an HTML element and truncates the text from middle with given middle chars.",
   "author": "Defne E. <edefne878@gmail.com> (https://github.com/definite2)",
