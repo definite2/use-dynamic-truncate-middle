@@ -10,7 +10,7 @@ import { Target, getTargetElement } from '../getTargetElement';
  * @return number of chars of ref's text, including number of chars of given/default
  * returned value is an odd number, first part has +1 characters
  */
-interface Options {
+export interface Options {
   target: Target;
   middleChars?: string;
   maxWidth: number;
@@ -30,36 +30,38 @@ const useFitCharacterNumber = ({ target, maxWidth, middleChars }: Options) => {
     if (el.textContent && maxWidth) {
       const context = getContext();
       const computedStyles = window.getComputedStyle(el);
-      context.font = computedStyles.font
-        ? computedStyles.font
-        : `${computedStyles.fontSize}" "${computedStyles.fontFamily}`;
-      const textWidth = context?.measureText(el.textContent).width; // width of text
-      let fitLength: number = el.textContent.length;
-      let prefix = ''; // char from start
-      let suffix = ''; // char from end
-      let i = 0;
-      let j = fitLength - 1;
-      let current = middleChars || ''; // i.e. '...'
-      let prev = current;
-      while (i < j) {
-        prefix = prefix + el.textContent.charAt(i);
-        current = prefix + middleChars + suffix;
-        if (context.measureText(current).width > maxWidth) {
-          fitLength = prev.length;
-          break;
+      if (context) {
+        context.font = computedStyles.font
+          ? computedStyles.font
+          : `${computedStyles.fontSize}" "${computedStyles.fontFamily}`;
+        const textWidth = context?.measureText(el.textContent).width; // width of text
+        let fitLength: number = el.textContent.length;
+        let prefix = ''; // char from start
+        let suffix = ''; // char from end
+        let i = 0;
+        let j = fitLength - 1;
+        let current = middleChars || ''; // i.e. '...'
+        let prev = current;
+        while (i < j) {
+          prefix = prefix + el.textContent.charAt(i);
+          current = prefix + middleChars + suffix;
+          if (context.measureText(current).width > maxWidth) {
+            fitLength = prev.length;
+            break;
+          }
+          prev = current;
+          suffix = el.textContent.charAt(j) + suffix;
+          current = prefix + middleChars + suffix;
+          if (context.measureText(current).width > maxWidth) {
+            fitLength = prev.length;
+            break;
+          }
+          prev = current;
+          i++;
+          j--;
         }
-        prev = current;
-        suffix = el.textContent.charAt(j) + suffix;
-        current = prefix + middleChars + suffix;
-        if (context.measureText(current).width > maxWidth) {
-          fitLength = prev.length;
-          break;
-        }
-        prev = current;
-        i++;
-        j--;
+        return { textWidth, charNumber: fitLength };
       }
-      return { textWidth, charNumber: fitLength };
     }
     return { textWidth: undefined, charNumber: undefined };
   }, [maxWidth, middleChars]);

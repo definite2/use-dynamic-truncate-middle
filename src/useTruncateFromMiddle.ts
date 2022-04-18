@@ -1,25 +1,24 @@
 import { useLayoutEffect, useState } from 'react';
-import { Target, getTargetElement } from './utils/getTargetElement';
+import { Target } from './utils/getTargetElement';
 import useElementWidth from './utils/useElementWidth';
 import useFitCharacterNumber from './utils/useFitCharacterNumber';
 import { truncateFromMiddle } from './utils/truncateFromMiddle';
 
-const useTruncateFromMiddle = (target: Target) => {
-  const el = getTargetElement(target);
-  const [buttonText, setButtonText] = useState(el?.textContent);
-  const buttonWidth = useElementWidth(target);
+const useTruncateFromMiddle = (target: Target, initialTextContent: string) => {
+  const [result, setResult] = useState(initialTextContent);
+  const elWidth = useElementWidth(target);
   const { textWidth, charNumber } = useFitCharacterNumber({
     target,
-    maxWidth: buttonWidth,
+    maxWidth: elWidth,
     middleChars: '...',
   });
   useLayoutEffect(() => {
-    if (buttonWidth && charNumber && textWidth) {
-      if (textWidth > buttonWidth)
-        setButtonText(truncateFromMiddle(el.textContent, charNumber));
+    if (elWidth && charNumber && textWidth) {
+      if (textWidth > elWidth)
+        setResult(truncateFromMiddle(initialTextContent || '', charNumber));
     }
-  }, [buttonWidth, charNumber, textWidth]);
-  return buttonText;
+  }, [elWidth, charNumber, textWidth]);
+  return { result };
 };
 
 export default useTruncateFromMiddle;

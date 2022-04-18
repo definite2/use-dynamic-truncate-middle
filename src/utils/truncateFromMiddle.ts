@@ -1,5 +1,5 @@
 export const truncateFromMiddle = (
-  fullStr: string,
+  fullStr: string = '',
   strLen: number,
   separator = '...',
 ) => {
