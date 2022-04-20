@@ -5,7 +5,7 @@ import useFitCharacterNumber from './utils/useFitCharacterNumber';
 import { truncateFromMiddle } from './utils/truncateFromMiddle';
 
 const useTruncateFromMiddle = (target: Target, initialTextContent: string) => {
-  const [result, setResult] = useState(initialTextContent);
+  const [result, setResult] = useState(initialTextContent || '');
   const elWidth = useElementWidth(target);
   const { textWidth, charNumber } = useFitCharacterNumber({
     target,
@@ -15,9 +15,9 @@ const useTruncateFromMiddle = (target: Target, initialTextContent: string) => {
   useLayoutEffect(() => {
     if (elWidth && charNumber && textWidth) {
       if (textWidth > elWidth)
-        setResult(truncateFromMiddle(initialTextContent || '', charNumber));
+        setResult(truncateFromMiddle(initialTextContent, charNumber));
     }
-  }, [elWidth, charNumber, textWidth]);
+  }, [elWidth, charNumber, textWidth, initialTextContent]);
   return { result };
 };
 

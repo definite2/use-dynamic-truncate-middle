@@ -13,7 +13,7 @@ export function getTargetElement<T extends TargetType>(
   target: Target<T>,
   defaultElement?: T,
 ) {
-  if (typeof window !== 'undefined') return undefined;
+  if (typeof window === 'undefined') return undefined;
   if (!('ResizeObserver' in window)) {
     console.error(
       "Your browser doesn't support Resize Observer, please use polyfill",
