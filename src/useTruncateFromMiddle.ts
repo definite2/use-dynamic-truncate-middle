@@ -16,9 +16,10 @@ const useTruncateFromMiddle = (target: Target, initialTextContent: string) => {
     if (elWidth && charNumber && textWidth) {
       if (textWidth > elWidth)
         setResult(truncateFromMiddle(initialTextContent, charNumber));
+      else setResult(initialTextContent);
     }
   }, [elWidth, charNumber, textWidth, initialTextContent]);
-  return { result };
+  return { truncatedText: result, contentWidth: elWidth, textWidth };
 };
 
 export default useTruncateFromMiddle;

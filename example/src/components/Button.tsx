@@ -8,14 +8,17 @@ export interface ButtonProps {
 }
 const Button = ({ originalLongText, width, font }: ButtonProps) => {
   const btnRef = React.useRef<HTMLButtonElement | null>(null);
-  const { result } = useTruncateFromMiddle(btnRef, originalLongText || '');
+  const { truncatedText, contentWidth } = useTruncateFromMiddle(
+    btnRef,
+    originalLongText || '',
+  );
 
   return (
     <div className="button-container">
       <button ref={btnRef} style={{ width: width, font: font }}>
-        {result}
+        {truncatedText}
       </button>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div className="button-details">
         <pre
           style={{
             whiteSpace: 'pre-wrap',
@@ -30,7 +33,7 @@ const Button = ({ originalLongText, width, font }: ButtonProps) => {
           }}
         >
           {' '}
-          {`width = ${width}`}
+          {`content width = ${contentWidth}`}
         </pre>
         <pre
           style={{
