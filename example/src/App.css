@@ -1,0 +1,23 @@
+.App {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.App > h2 {
+  color: rgb(27 78 104);
+}
+
+.button-container {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e2e2e1;
+  padding: 8px;
+  margin-bottom: 24px;
+}
+button {
+  white-space: nowrap;
+  padding: 8px;
+}
