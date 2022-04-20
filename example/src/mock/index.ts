@@ -1,17 +1,17 @@
 export const buttons = [
   {
-    text: 'longer text button',
+    text: 'very long longer text button',
     width: '128px',
-    font: '15px/16px Arial, sans-serif',
+    font: '18px/18px Arial, sans-serif',
   },
   {
-    text: 'clickking me!',
-    width: '98px',
+    text: 'Click long text!',
+    width: '144px',
     font: 'italic small-caps bold 18px/30px Georgia, serif',
   },
   {
     text: 'Create new context',
-    width: '170px',
-    font: '16px/1.6rem Arial normal',
+    width: '120px',
+    font: '16px Arial normal',
   },
 ];

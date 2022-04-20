@@ -17,7 +17,15 @@
   padding: 8px;
   margin-bottom: 24px;
 }
+
 button {
   white-space: nowrap;
   padding: 8px;
+}
+.button-details {
+  margin-left: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #e2e2e1;
 }

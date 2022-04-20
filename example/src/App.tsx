@@ -1,4 +1,4 @@
-import Button from './components/Button';
+import Textarea from './components/Button';
 import { buttons } from './mock';
 import './App.css';
 
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <h2>Truncating Button Text From Middle</h2>
       {buttons.map((button, index) => (
-        <Button
+        <Textarea
           key={`${button.text}_${index}`}
           width={button.width}
           originalLongText={button.text}
