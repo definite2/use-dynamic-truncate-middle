@@ -1,4 +1,4 @@
-import Textarea from './components/Button';
+import Textarea from './components/Textarea';
 import { buttons } from './mock';
 import './App.css';
 

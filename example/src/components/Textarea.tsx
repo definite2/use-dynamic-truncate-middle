@@ -1,31 +1,36 @@
 import React from 'react';
 import { useTruncateFromMiddle } from 'use-truncate-from-middle';
 
-export interface ButtonProps {
+export interface TextareaProps {
   originalLongText?: string;
   width: string;
   font: string;
 }
-const Button = ({ originalLongText, width, font }: ButtonProps) => {
-  const btnRef = React.useRef<HTMLButtonElement | null>(null);
+const Textarea = ({ originalLongText, width, font }: TextareaProps) => {
+  const btnRef = React.useRef<HTMLTextAreaElement | null>(null);
   const { truncatedText, contentWidth } = useTruncateFromMiddle(
     btnRef,
     originalLongText || '',
   );
 
   return (
-    <div className="button-container">
-      <button ref={btnRef} style={{ width: width, font: font }}>
-        {truncatedText}
-      </button>
-      <div className="button-details">
+    <div className="area-container">
+      <textarea
+        ref={btnRef}
+        rows={1}
+        style={{ width: width, font: font }}
+        value={truncatedText}
+        readOnly
+      />
+
+      <div className="text-details">
         <pre
           style={{
             whiteSpace: 'pre-wrap',
           }}
         >
           {' '}
-          {`original text: "${originalLongText}"`}
+          {`original: "${originalLongText}"`}
         </pre>
         <pre
           style={{
@@ -41,11 +46,11 @@ const Button = ({ originalLongText, width, font }: ButtonProps) => {
           }}
         >
           {' '}
-          {`button font style is: ${font}`}
+          {`font style is: ${font}`}
         </pre>
       </div>
     </div>
   );
 };
 
-export default Button;
+export default Textarea;

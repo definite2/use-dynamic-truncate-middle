@@ -8,7 +8,7 @@
   color: rgb(27 78 104);
 }
 
-.button-container {
+.area-container {
   margin-top: 12px;
   display: flex;
   align-items: center;
@@ -18,12 +18,12 @@
   margin-bottom: 24px;
 }
 
-button {
+textarea {
   overflow: hidden;
   white-space: nowrap;
   padding: 8px;
 }
-.button-details {
+.text-details {
   margin-left: 8px;
   padding: 8px;
   display: flex;

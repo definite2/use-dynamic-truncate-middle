@@ -26,7 +26,7 @@ const getContext = () => {
 const useFitCharacterNumber = ({ target, maxWidth, middleChars }: Options) => {
   return useMemo(() => {
     const el = getTargetElement(target);
-    if (!el) return { textWidth: undefined, charNumber: undefined };
+    if (!el) return { charNumber: undefined };
     if (el.textContent && maxWidth) {
       const context = getContext();
       const computedStyles = window.getComputedStyle(el);
@@ -34,7 +34,6 @@ const useFitCharacterNumber = ({ target, maxWidth, middleChars }: Options) => {
         context.font = computedStyles.font
           ? computedStyles.font
           : `${computedStyles.fontSize}" "${computedStyles.fontFamily}`;
-        const textWidth = context?.measureText(el.textContent).width; // width of text
         let fitLength: number = el.textContent.length;
         let prefix = ''; // char from start
         let suffix = ''; // char from end
@@ -60,10 +59,10 @@ const useFitCharacterNumber = ({ target, maxWidth, middleChars }: Options) => {
           i++;
           j--;
         }
-        return { textWidth, charNumber: fitLength };
+        return { charNumber: fitLength };
       }
     }
-    return { textWidth: undefined, charNumber: undefined };
+    return { charNumber: undefined };
   }, [maxWidth, middleChars]);
 };
 
