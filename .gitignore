@@ -46,3 +46,6 @@ typings/
 
 # generate output
 dist
+
+# Local Netlify folder
+.netlify
