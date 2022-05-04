@@ -3,7 +3,6 @@ import { Target, getTargetElement } from '../getTargetElement';
 /**
  * Returns current width of specified element.
  *
- * @param {Ref} ref element to use in width calculation
  */
 
 const useElementWidth = (target: Target) => {

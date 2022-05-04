@@ -4,16 +4,13 @@ import { Target, getTargetElement } from '../getTargetElement';
  * Calculates the maximum number of characters that can be fit into give maxwidth.
  * Calculates the width of text with given font family via ref object, in terms of px
  *
- * @param {Ref} target
- * @param {number} maxWidth
- * @param {string} middleChars i.e. '...' ellipsis
  * @return number of chars of ref's text, including number of chars of given/default
  * returned value is an odd number, first part has +1 characters
  */
 export interface Options {
   target: Target;
-  middleChars?: string;
   maxWidth: number;
+  middleChars?: string;
 }
 // create canvas element, and get its content
 const getContext = () => {
@@ -39,7 +36,7 @@ const useFitCharacterNumber = ({ target, maxWidth, middleChars }: Options) => {
         let suffix = ''; // char from end
         let i = 0;
         let j = fitLength - 1;
-        let current = middleChars || ''; // i.e. '...'
+        let current = middleChars || '...'; // i.e. '...'
         let prev = current;
         while (i < j) {
           prefix = prefix + el.textContent.charAt(i);

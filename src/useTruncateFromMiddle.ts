@@ -4,25 +4,27 @@ import useElementWidth from './utils/useElementWidth';
 import useFitCharacterNumber from './utils/useFitCharacterNumber';
 import { truncateFromMiddle } from './utils/truncateFromMiddle';
 import useTextWidth from './utils/useTextWidth';
-
-const useTruncateFromMiddle = (target: Target, initialTextContent: string) => {
-  const [result, setResult] = useState(initialTextContent || '');
-  const elWidth = useElementWidth(target);
-  const textWidth = useTextWidth(target);
+interface Options {
+  ref: Target;
+  originalText: string;
+  middleChars?: string;
+}
+const useTruncateFromMiddle = ({ ref, originalText, middleChars }: Options) => {
+  const [result, setResult] = useState(originalText || '');
+  const elWidth = useElementWidth(ref);
+  const textWidth = useTextWidth(ref);
   const { charNumber } = useFitCharacterNumber({
-    target,
+    target: ref,
     maxWidth: elWidth,
-    middleChars: '...',
+    middleChars,
   });
   useLayoutEffect(() => {
-    console.log({ textWidth });
     if (elWidth && charNumber && textWidth) {
-      console.log({ textWidth });
       if (textWidth > elWidth)
-        setResult(truncateFromMiddle(initialTextContent, charNumber));
-      else setResult(initialTextContent);
+        setResult(truncateFromMiddle(originalText, charNumber));
+      else setResult(originalText);
     }
-  }, [elWidth, charNumber, textWidth, initialTextContent]);
+  }, [elWidth, charNumber, textWidth, originalText]);
   return { truncatedText: result, contentWidth: elWidth, textWidth };
 };
 
