@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <h2>Truncating Button Text From Middle</h2>
-      {buttons.map((button, index) => (
+      {buttons.slice(0, 1).map((button, index) => (
         <Textarea
           key={`${button.text}_${index}`}
           width={button.width}

@@ -31,10 +31,12 @@ const Textarea = ({
   font = '18px/18px Arial, sans-serif',
 }) => {
   const btnRef = React.useRef(null);
-  const { truncatedText, contentWidth } = useTruncateFromMiddle(
-    btnRef,
-    originalLongText,
-  );
+
+  const { truncatedText, contentWidth } = useTruncateFromMiddle({
+    ref: btnRef,
+    originalText: originalLongText || '',
+    middleChars: '...',
+  });
 
   return (
     <>

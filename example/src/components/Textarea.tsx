@@ -8,10 +8,12 @@ export interface TextareaProps {
 }
 const Textarea = ({ originalLongText, width, font }: TextareaProps) => {
   const btnRef = React.useRef<HTMLTextAreaElement | null>(null);
-  const { truncatedText, contentWidth } = useTruncateFromMiddle(
-    btnRef,
-    originalLongText || '',
-  );
+
+  const { truncatedText, contentWidth } = useTruncateFromMiddle({
+    ref: btnRef,
+    originalText: originalLongText || '',
+    middleChars: '...',
+  });
 
   return (
     <div className="area-container">
