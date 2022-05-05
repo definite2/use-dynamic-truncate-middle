@@ -4,7 +4,7 @@ This react hook dynamically truncates text from the middle
 
 ## Demo
 
-🚀 See [Demo:](https://6271164ce9065200596d00f0--phenomenal-brigadeiros-2b0d14.netlify.app/)
+🚀 See [Demo:](https://627404cf0c3c4e0eca49c27d--phenomenal-brigadeiros-2b0d14.netlify.app/)
 
 ## Installation
 
