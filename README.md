@@ -56,3 +56,11 @@ const Textarea = ({
 <figcaption>Truncated  from middle with given parameters</figcaption>
 <img src="./assets/capt.png" alt="truncate middle ss"/>
 </figure>
+
+### Props
+
+| Prop           | Type     | Description                                                                                                       | Default |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- | ------- |
+| `originalText` | `String` | Initial text value of the component. It is going to be truncated from middle if necessary.                        | `''`    |
+| `middleChars`  | `String` | The ellipsis to use when the text is truncated from middle.                                                       | `'...'` |
+| `ref`          | `Object` | The `ref` of the text container component.It is required to calculate component's width and to get its font style | `null`  |
