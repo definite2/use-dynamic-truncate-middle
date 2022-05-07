@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Target, getTargetElement } from '../getTargetElement';
+import { Target, getTargetElement } from '../../utils/getTargetElement';
 /**
  * Calculates the maximum number of characters that can be fit into give maxwidth.
  * Calculates the width of text with given font family via ref object, in terms of px

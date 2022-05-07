@@ -1,5 +1,6 @@
-import { useLayoutEffect, useState } from 'react';
-import { Target, getTargetElement } from '../getTargetElement';
+import { useState } from 'react';
+import useIsomorphicLayoutEffect from '../../utils/useIsomorphicLayoutEffect';
+import { Target, getTargetElement } from '../../utils/getTargetElement';
 /**
  * Returns current width of specified element.
  *
@@ -16,7 +17,7 @@ const useElementWidth = (target: Target) => {
     }
   });
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const el = getTargetElement(target);
     if (!el) {
       return;

@@ -1,9 +1,10 @@
-import { useLayoutEffect, useState } from 'react';
-import { Target } from './utils/getTargetElement';
-import useElementWidth from './utils/useElementWidth';
-import useFitCharacterNumber from './utils/useFitCharacterNumber';
-import { truncateFromMiddle } from './utils/truncateFromMiddle';
-import useTextWidth from './utils/useTextWidth';
+import { useState } from 'react';
+import { Target } from '../utils/getTargetElement';
+import useElementWidth from './useElementWidth';
+import useFitCharacterNumber from './useFitCharacterNumber';
+import { truncateFromMiddle } from '../utils/truncateFromMiddle';
+import useTextWidth from '../utils/useTextWidth';
+import useIsomorphicLayoutEffect from '../utils/useIsomorphicLayoutEffect';
 interface Options {
   ref: Target;
   originalText: string;
@@ -18,7 +19,7 @@ const useTruncateFromMiddle = ({ ref, originalText, middleChars }: Options) => {
     maxWidth: elWidth,
     middleChars,
   });
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (elWidth && charNumber && textWidth) {
       if (textWidth > elWidth)
         setResult(truncateFromMiddle(originalText, charNumber));
