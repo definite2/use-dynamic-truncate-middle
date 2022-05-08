@@ -4,7 +4,7 @@ This react hook dynamically truncates text from the middle
 
 ## Demo
 
-🚀 See [Demo:](https://627404cf0c3c4e0eca49c27d--phenomenal-brigadeiros-2b0d14.netlify.app/)
+🚀 See [Demo:](https://6277739a70c89c1ec4e0ce1c--phenomenal-brigadeiros-2b0d14.netlify.app)
 
 ## Installation
 
@@ -25,14 +25,14 @@ import { useTruncateFromMiddle } from 'use-truncate-from-middle';
 ```
 
 ```javascript
-const Textarea = ({
+const Button = ({
   originalLongText = 'very long longer text button',
   width = '128px', // width (total)= content width + border width + padding
   font = '18px/18px Arial, sans-serif',
 }) => {
   const btnRef = React.useRef(null);
 
-  const { truncatedText, contentWidth } = useTruncateFromMiddle({
+  const { truncatedText } = useTruncateFromMiddle({
     ref: btnRef,
     originalText: originalLongText || '',
     middleChars: '...',
@@ -40,21 +40,17 @@ const Textarea = ({
 
   return (
     <>
-      <textarea
-        ref={btnRef}
-        rows={1}
-        style={{ width: width, font: font }}
-        value={truncatedText}
-        readOnly
-      />
+      <button ref={btnRef} style={{ width: width, font: font }}>
+        {truncatedText}
+      </button>
     </>
   );
 };
 ```
 
 <figure>
-<figcaption>Truncated  from middle with given parameters</figcaption>
 <img src="./assets/capt.png" alt="truncate middle ss"/>
+<figcaption>Example : Button Text Truncated From Middle</figcaption>
 </figure>
 
 ### Props
