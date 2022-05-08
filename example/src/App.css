@@ -7,6 +7,9 @@
 .App > h2 {
   color: rgb(27 78 104);
 }
+.detail {
+  color: rgb(27 78 104);
+}
 
 .area-container {
   margin-top: 12px;

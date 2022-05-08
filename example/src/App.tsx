@@ -6,6 +6,9 @@ function App() {
   return (
     <div className="App">
       <h2>Truncating Button Text From Middle</h2>
+      <div className="detail">
+        With different font styles and different button width values
+      </div>
       {buttons.map((button, index) => (
         <Button
           key={`${button.text}_${index}`}
